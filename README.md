@@ -92,3 +92,61 @@ Steps 1-6 outline the setup phase of a LitMod simulation; steps 7-11 list the in
 ## Notes (Eldar)
 - **gravcalc_parallel** `gravcalc_parallel.for` and **gravity_calculator** `gravity_calculator.py`
   - external parallel gravity calculator
+
+# LitMod Graphical Interface
+
+Graphical interface for LitMod
+
+## Compilation
+
+Program is written in Fortran. Compile using a fortran compiler, preferably gfortran:
+```
+gfortran LITMOD3D_INTF.f SUB* -o litmod3d_intf -lpgplot -L/usr/lib -lX11 -fd-lines-as-comments -lpng
+```
+
+In **macOS**, first install [iTerm2](https://iterm2.com). Within **iTerm2** terminal install [brew](https://brew.sh) with command:
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Than install [zsh]() with command :
+```
+brew install zsh
+```
+
+Make **zsh** a default shell in **iTerm2** by clicking iTerm2 -> Profiles -> Command: /bin/zsh.
+
+Restart **iTerm2** and install [Oh My Zsh](https://ohmyz.sh) with command:
+```
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Now, install [XQuartz](https://www.xquartz.org):
+```
+brew cask install xquartz
+```
+
+After, install [pgplot](http://www.astro.caltech.edu/~tjp/pgplot/) with command:
+```
+brew install pgplot
+```
+
+Finally, to compile, use:
+```
+gfortran LITMOD3D_INTF.f -o litmod3d_intf SUB* -lpgplot -L/usr/lib -L/usr/X11/lib -fd-lines-as-comments -lpng
+```
+Note that is you already had **pgplot** and/or **XQuartz** installed on your Mac, you may have to change the path to libraries. Instructions above were tested on macOS Mojave.
+
+Program and main script `LITMOD_3D.job` uses [GMT4](http://gmt.soest.hawaii.edu), and **GMT4** must be set up in such way that subroutines are called directly, such as:
+```
+minmax -C ./layers/layer1.xyz
+```
+
+To install **GMT4** on Mac, run:
+```
+brew install gmt4
+```
+and add the path to **GMT4** into `.zshrc` config file in your homefolder:
+```
+echo 'export PATH="/usr/local/opt/gmt@4/bin:$PATH"' >> .zshrc
+```
