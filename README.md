@@ -95,3 +95,5 @@ After running `LITMOD_3D.job` in preprocessing mode, switch pre_pro to 0 and run
 ```
 ./litmod_intf
 ```
+
+Detailed manual is included into archive as a PDF file `LitMod_userguide.pdf`.
