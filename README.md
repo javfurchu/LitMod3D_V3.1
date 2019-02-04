@@ -1,6 +1,10 @@
-# LitMod
+# LitMod ver 3.0
 
 **LitMod3D** is a software for 3D integrated geophysical-petrological interactive modelling of the lithosphere and underlying upper mantle using a variety of input datasets: potential fields (gravity and magnetic), surface heat flow, elevation (isostasy), seismics, magnetotellurics and geochemical.
+
+Ver 3.0 incorporates a highly optimised Python thermal solver (bi-conjugate gradient squared method), crustal petrology features (thermodynamic equilibrium and metastable) and a parallel gravity forward solver. The new version is intended to work with program get-inp (customized interface to Perple_X, http://www.perplex.ethz.ch/) to generate the inputcrustal and mantle compositional files.
+
+
 
 ## Installation
 Download the distibution archive (https://github.com/javfurchu/litmod/releases/download/v3.0/litmod_3.0.zip) to your computer and unpack it into a folder (for example `~/litmod`). 
