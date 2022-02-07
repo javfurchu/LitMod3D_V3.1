@@ -1,16 +1,16 @@
-# LitMod ver 3.0
+# LitMod3D ver 3.1
 
 **LitMod3D** is a software for 3D integrated geophysical-petrological interactive modelling of the lithosphere and underlying upper mantle using a variety of input datasets: potential fields (gravity and magnetic), surface heat flow, elevation (isostasy), seismics, magnetotellurics and geochemical.
 
-Ver 3.0 incorporates a highly optimised Python thermal solver (bi-conjugate gradient squared method), crustal petrology features (thermodynamic equilibrium and metastable) and a parallel gravity forward solver. The new version is intended to work with program get-inp (customized interface to Perple_X, http://www.perplex.ethz.ch/) to generate the inputcrustal and mantle compositional files.
+Ver 3.1 incorporates a highly optimised Python thermal solver (bi-conjugate gradient squared method), crustal petrology features (thermodynamic equilibrium and metastable) and a parallel gravity forward solver. The new version is intended to work with program get-inp (customized interface to Perple_X, http://www.perplex.ethz.ch/) to generate the inputcrustal and mantle compositional files.
 
 
 
 ## Installation
-Download the distibution archive (https://github.com/javfurchu/litmod/releases/download/v3.0/litmod_3.0.zip) to your computer and unpack it into a folder (for example `~/litmod`). 
+Download the distibution archive (https://github.com/javfurchu/litmod/releases/download/v3.0/LitMod3D_V3.1.tgz) to your computer and unpack it into a folder (for example `~/LitMod_proj`): tar -xvzf LitMod3D_V3.1.tgz
 
 ### Linux
-You have to have [Python 2.7](https://www.python.org/), [PGPLOT](http://www.astro.caltech.edu/~tjp/pgplot/), [gfortran](https://gcc.gnu.org/fortran/), [zsh](http://www.zsh.org/) and [GMT4](http://gmt.soest.hawaii.edu) installed on your computer. In Linux, set **zsh** as a main shell. Change directory to the folder with unpacked files. Then run the script:
+You have to have [Python 3.0](https://www.python.org/), [PGPLOT](http://www.astro.caltech.edu/~tjp/pgplot/), [gfortran](https://gcc.gnu.org/fortran/), [zsh](http://www.zsh.org/) and [GMT5](http://gmt.soest.hawaii.edu) installed on your computer. In Linux, set **zsh** as a main shell. Change directory to the folder with unpacked files. Then run the script:
 ```
 ./PREPARE.job
 ```
@@ -54,23 +54,23 @@ Note that if you already had **pgplot** and/or **XQuartz** installed on your Mac
 ## Usage
 
 ### Preparing GMT4
-LitMod executables and main calling script `LITMOD_3D.job` use [GMT4](http://gmt.soest.hawaii.edu), and therefore **GMT4** must be set up to be called directly from the the local LitMod folder, such as:
+LitMod executables and main calling script `LITMOD_3D.job` use [GMT5](http://gmt.soest.hawaii.edu), to pre and postprocess files and therefore **GMT5** must be set up to be called directly from the the local LitMod folder, such as:
 ```
-minmax -C ./layers/layer1.xyz
+gmt gmtinfo -C ./layers/layer1.xyz
 ```
 
-To install **GMT4** on **macOS**, run:
+To install **GMT5** on **macOS**, run:
 ```
-brew install gmt4
+brew install gmt5
 ```
-and add the path to **GMT4** into `.zshrc` config file in your homefolder:
+and add the path to **GMT5** into `.zshrc` config file in your homefolder:
 ```
-echo 'export PATH="/usr/local/opt/gmt@4/bin:$PATH"' >> .zshrc
+echo 'export PATH="/usr/local/opt/gmt@5/bin:$PATH"' >> .zshrc
 ```
 In **Linux**, follow instructions on http://gmt.soest.hawaii.edu to install **GMT4**.
 
 ### Input files
-Examples of input files required to run **LitMod** are included into the archive (https://github.com/javfurchu/litmod/releases/download/v3.0/litmod_3.0.zip)
+Examples of input files required to run **LitMod** are included into the archive (https://github.com/javfurchu/litmod/releases/download/v3.0/LiMod3D_V3.1.tgz)
 
 LitMod requires a number of input files that are managed from the calling script `LITMOD_3D.job`:
 
@@ -95,9 +95,9 @@ At the beginning of `LITMOD_3D.job` the user can set up the geopgraphical bounda
 The distibution provides sample observed data grids in the folder `example_obs`. The user can provide customized data grids with the format lon; lat; value that will be preprocessed by `LITMOD_3D.job`. For the gravity gradients a small program (LNOF2MRF) is provided to rotate the tensor from the Local North Oriented Reference Frame (https://earth.esa.int/web/guest/data-access/view-data-product/-/article/goce-gravity-gradients-in-lnof-5775) to the model reference frame in the Cartesian coordinate system used by LitMod. 
 
 
-After running `LITMOD_3D.job` in preprocessing mode, switch pre_pro variable to 0 and run `LITMOD_3D.job` again. This will run **LitMod** forward modelling code. The ouput geophysical data sets and the 3D lithospheric model can be visualized using **LitMod** graphical interface, which also can be used to interactively modify the 3D model:
+After running `LITMOD_3D.job` in preprocessing mode, switch pre_pro variable to 0, the mode variable to 1  and run `LITMOD_3D.job` again. This will run **LitMod** forward modelling code. The ouput geophysical data sets and the 3D lithospheric model can be visualized using **LitMod** graphical interface, which also can be used to interactively modify the 3D model:
 ```
-./litmod_intf
+./LITMOD3D_INTF
 ```
 
 
