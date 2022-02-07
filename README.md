@@ -7,7 +7,7 @@ Ver 3.1 incorporates a highly optimised Python thermal solver (bi-conjugate grad
 
 
 ## Installation
-Download the distibution archive (https://github.com/javfurchu/litmod/releases/download/v3.0/LitMod3D_V3.1.tgz) to your computer and unpack it into a folder (for example `~/LitMod_proj`): tar -xvzf LitMod3D_V3.1.tgz
+Download the distibution archive (https://github.com/javfurchu/litmod/releases/download/v3.1/LitMod3D_V3.1.tgz) to your computer and unpack it into a folder (for example `~/LitMod_proj`): tar -xvzf LitMod3D_V3.1.tgz
 
 ### Linux
 You have to have [Python 3.0](https://www.python.org/), [PGPLOT](http://www.astro.caltech.edu/~tjp/pgplot/), [gfortran](https://gcc.gnu.org/fortran/), [zsh](http://www.zsh.org/) and [GMT5](http://gmt.soest.hawaii.edu) installed on your computer. In Linux, set **zsh** as a main shell. Change directory to the folder with unpacked files. Then run the script:
@@ -70,7 +70,7 @@ echo 'export PATH="/usr/local/opt/gmt@5/bin:$PATH"' >> .zshrc
 In **Linux**, follow instructions on http://gmt.soest.hawaii.edu to install **GMT4**.
 
 ### Input files
-Examples of input files required to run **LitMod** are included into the archive (https://github.com/javfurchu/litmod/releases/download/v3.0/LiMod3D_V3.1.tgz)
+Examples of input files required to run **LitMod** are included into the archive (https://github.com/javfurchu/litmod/releases/download/v3.1/LiMod3D_V3.1.tgz)
 
 LitMod requires a number of input files that are managed from the calling script `LITMOD_3D.job`:
 
