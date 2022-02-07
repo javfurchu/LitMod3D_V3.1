@@ -53,7 +53,7 @@ Note that if you already had **pgplot** and/or **XQuartz** installed on your Mac
 
 ## Usage
 
-### Preparing GMT4
+### Preparing GMT5
 LitMod executables and main calling script `LITMOD_3D.job` use [GMT5](http://gmt.soest.hawaii.edu), to pre and postprocess files and therefore **GMT5** must be set up to be called directly from the the local LitMod folder, such as:
 ```
 gmt gmtinfo -C ./layers/layer1.xyz
