@@ -1,8 +1,8 @@
 # LitMod3D ver 3.1
 
-**LitMod3D** is a software for 3D integrated geophysical-petrological interactive modelling of the lithosphere and underlying upper mantle using a variety of input datasets: potential fields (gravity and magnetic), surface heat flow, elevation (isostasy), seismics, magnetotellurics and geochemical.
+**LitMod3D** is software for 3D integrated geophysical-petrological interactive modelling of the lithosphere and underlying upper mantle using a variety of input datasets: potential fields (gravity and magnetic), surface heat flow, elevation (isostasy), seismics, magnetotellurics and geochemical.
 
-Ver 3.1 incorporates a highly optimised Python thermal solver (bi-conjugate gradient squared method), crustal petrology features (thermodynamic equilibrium and metastable) and a parallel gravity forward solver. The new version is intended to work with program get-inp (customized interface to Perple_X, http://www.perplex.ethz.ch/) to generate the inputcrustal and mantle compositional files.
+Ver 3.1 incorporates a highly optimised Python thermal solver (bi-conjugate gradient squared method), crustal petrology features (thermodynamic equilibrium and metastable) and a parallel gravity forward solver. The new version is intended to work with program get-inp (customized interface to Perple_X, http://www.perplex.ethz.ch/) to generate the input crustal and mantle compositional files.
 
 
 
@@ -63,7 +63,7 @@ To install **GMT5** on **macOS**, run:
 ```
 brew install gmt5
 ```
-and add the path to **GMT5** into `.zshrc` config file in your homefolder:
+and add the path to **GMT5** into `.zshrc` config file in your home folder:
 ```
 echo 'export PATH="/usr/local/opt/gmt@5/bin:$PATH"' >> .zshrc
 ```
@@ -80,13 +80,13 @@ LitMod requires a number of input files that are managed from the calling script
 In addition other input files are required:
 
 - `layers.info` header file that describes the physical and petrological properties of each layer in the model.
-- Geometry of model layers in the folder 'layers' (geographical coordinates),and the folder 'layers_xy' (Cartesian coordinates).
+- Geometry of model layers in the folder 'layers' (geographical coordinates), and the folder 'layers_xy' (Cartesian coordinates).
 - Compositional files in the folder 'mant_data'.
 
 ### LITMOD_3D.job
-`LITMOD_3D.job`  contains all the input values required to run LiMod. The script interfaces with [GMT](https://github.com/GenericMappingTools) and generates `LITMOD3D.info` and `mnt.info` files rquired by LitMod. `LITMOD_3D.job`  also processes the files contained in the folder 'layers' (geographical layers) and puts the output (Cartesian layers) in the folder 'layers_xy' as required by LitMod. 
+`LITMOD_3D.job`  contains all the input values required to run LitMod. The script interfaces with [GMT](https://github.com/GenericMappingTools) and generates `LITMOD3D.info` and `mnt.info` files required by LitMod. `LITMOD_3D.job`  also processes the files contained in the folder 'layers' (geographical layers) and puts the output (Cartesian layers) in the folder 'layers_xy' as required by LitMod. 
 
-At the beginning of `LITMOD_3D.job` the user can set up the geopgraphical boundaries of the modelling region (lon_min, lon_max, lat_min, lat_max), the number of nodes in the model (N_x, N_y, N_z) and other parameters. 
+At the beginning of `LITMOD_3D.job` the user can set up the geographical boundaries of the modelling region (lon_min, lon_max, lat_min, lat_max), the number of nodes in the model (N_x, N_y, N_z) and other parameters. 
 
 `LITMOD_3D.job` preprocesses input grids for geophysical data (e.g., gravity anomaly, surface topography, etc.) and reprojects them onto the modelling region (within lon_min, lon_max, lat_min, lat_max) with defined grid spacing (as per N_x, N_y variables). To make a first run, set parameter pre_pro to 1 and run `LITMOD_3D.job`:
 ```
